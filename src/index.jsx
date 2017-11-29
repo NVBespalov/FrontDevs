@@ -7,7 +7,7 @@ import ExchangeContainer from './containers/CatalogPage'
 import configureStore from './store/configureStore'
 import './styles/general.scss'
 
-const store = configureStore()
+const store = configureStore({})
 
 
 const Public = withRouter(connect(s => s)(({ component: Component, ...rest }) => (

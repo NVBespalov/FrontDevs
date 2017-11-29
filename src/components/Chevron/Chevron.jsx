@@ -1,7 +1,17 @@
 import React, { PureComponent } from 'react'
+import pt from 'prop-types'
+import cx from 'classnames'
+import styles from './Chevron.styl'
 
-export class Chevron extends PureComponent {
+export default class extends PureComponent {
+  static propTypes = {
+    mode: pt.string
+  }
+  static defaultProps = {
+    mode: 'tops'
+  }
   render() {
-    return (<span className='chevron bottom' />)
+    const { mode } = this.props
+    return (<span className={cx(styles.chevron, { [styles[mode]]: mode })} />)
   }
 }

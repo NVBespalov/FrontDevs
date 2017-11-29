@@ -3,7 +3,7 @@ import { createAction, createReducer } from 'redux-act'
 const initialState = {
 
 }
-  export const setRates = createAction('FrontDevs/exchange/SET_RATES')
+export const setRates = createAction('FrontDevs/exchange/SET_RATES')
 export const setCurrencies = createAction('FrontDevs/exchange/SET_CURRENCIES')
 export const setAmount = createAction('FrontDevs/exchange/SET_AMOUNT')
 
