@@ -2,6 +2,7 @@
   "presets": [["env", { "modules": false }], "react", "stage-2", "stage-3"],
   "plugins": [
     "transform-runtime",
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    "transform-class-properties"
   ]
 }
