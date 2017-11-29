@@ -6,37 +6,35 @@ import styles from './Checkbox.styl'
 
 class Checkbox extends PureComponent {
   static propTypes = {
-    title: pt.string,
-    id: pt.string,
+    label: pt.string,
     mode: pt.string,
-    disabled: pt.bool
+    name: pt.string,
+    disabled: pt.bool,
+    onChange: pt.func,
+    value: pt.bool
   }
 
   static defaultProps = {
-    id: '',
-    title: '',
-    disabled: false
+    label: '',
+    name: '',
+    value: false,
+    disabled: false,
+    mode: null,
+    onChange: () => {}
   }
 
-  state = {
-    checked: false
-  }
-
-  handleChange = () => {
-    this.setState({
-      checked: !this.state.checked
-    })
-  }
 
   render() {
-    const { title, mode, id, disabled } = this.props
+    const {
+      label, mode, disabled, name, onChange, value
+    } = this.props
 
-    const label = (
+    const labelElm = (
       <label
         className={styles.checkbox__label}
-        htmlFor={id}
+        htmlFor={name}
       >
-        {title}
+        {label}
       </label>
     )
     return (
@@ -49,12 +47,13 @@ class Checkbox extends PureComponent {
       >
         <input
           type='checkbox'
-          id={id}
-          checked={this.state.checked}
+          id={name}
+          name={name}
+          checked={value}
           className={styles.checkbox__field}
-          onChange={this.handleChange}
+          onChange={onChange}
         />
-        {label}
+        {labelElm}
       </div>
     )
   }

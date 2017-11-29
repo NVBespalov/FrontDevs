@@ -1,16 +1,25 @@
 import React, { PureComponent } from 'react'
+import pt from 'prop-types'
 import { Field } from 'redux-form'
 import Checkbox from '../Checkbox'
 import styles from './CategorySelector.styl'
 
 export default class extends PureComponent {
+  propTypes = {
+    values: pt.shape({})
+  }
+  renderField = ({ input: { name, onChange, value }, label, meta: { touched, error } }) => (
+    <Checkbox value={value} onChange={onChange} label={label} name={name} />
+  )
+
   render() {
+    const { values } = this.props
     return (
       <div className={styles.categorySelector}>
         <form className={styles.categoriesForm}>
-          <Checkbox title='MEN' id='men' />
-          <Checkbox title='WOMEN' id='women' />
-          <Checkbox title='CHILDREN' id='children' />
+          <Field value={values.men} name='men' component={this.renderField} label='MEN' />
+          <Field value={values.women} name='women' component={this.renderField} label='WOMEN' />
+          <Field value={values.children} name='children' component={this.renderField} label='CHILDREN' />
         </form>
         <button className={styles.showAllButton}>See All PRODUCTS</button>
       </div>
