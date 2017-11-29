@@ -12,10 +12,10 @@ export default class extends PureComponent {
       ASC: 'up',
       DESC: 'down'
     },
-    type: 'ASC'
+    type: 'DESC'
   }
   render() {
     const { types, type } = this.props
-    return (<div>SortBy PRICE <Chevron mode={types[type]} /> </div>)
+    return (<div>Sort BY PRICE <Chevron mode={types[type]} /> </div>)
   }
 }

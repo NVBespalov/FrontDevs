@@ -8,7 +8,7 @@ export default class extends PureComponent {
     mode: pt.string
   }
   static defaultProps = {
-    mode: 'tops'
+    mode: 'up'
   }
   render() {
     const { mode } = this.props
