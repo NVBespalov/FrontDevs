@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import ExchangeRatesPageComponentSchema from 'schemas/ExchangeRatesPageSchema'
 import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
+
 import CatalogPage from './../../components/CatalogPage'
 
 @reduxForm({

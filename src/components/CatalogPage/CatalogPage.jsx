@@ -4,6 +4,7 @@ import pt from 'prop-types'
 import styles from './CatalogPage.styl'
 import CategorySelector from '../../containers/CategorySelector'
 import SortBy from '../../containers/CatalogSortBy'
+import CatalogCategory from '../../containers/CatalogCategory'
 
 export default class extends PureComponent {
   static propTypes = {
@@ -16,6 +17,8 @@ export default class extends PureComponent {
       <div className={styles.catalogPage}>
         <CategorySelector formName={formName} />
         <SortBy />
+        <CatalogCategory />
+        <CatalogCategory />
       </div>
     )
   }
