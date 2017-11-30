@@ -3,10 +3,10 @@ import pt from 'prop-types'
 
 import styles from './CatalogPage.styl'
 import CategorySelector from '../../containers/CategorySelector'
-import SortBy from '../SortBy/'
+import SortBy from '../../containers/CatalogSortBy'
 
 export default class extends PureComponent {
-  propTypes = {
+  static propTypes = {
     form: pt.string.isRequired
   }
 

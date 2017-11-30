@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import pt from 'prop-types'
 import cx from 'classnames'
+
 import styles from './Chevron.styl'
 
 export default class extends PureComponent {

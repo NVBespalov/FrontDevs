@@ -12,7 +12,7 @@ const formValuesSelector = (state, { formName }) => rPathOr(emptyObject, ['from'
 
 @connect((state, ownProps) => ({ values: formValuesSelector(state, ownProps) }))
 export default class extends PureComponent {
-  propTypes = {
+  static propTypes = {
     values: pt.shape({}).isRequired
   }
   render() {

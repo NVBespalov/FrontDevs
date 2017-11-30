@@ -3,10 +3,10 @@
  */
 import { combineReducers } from 'redux'
 import { reducer as form } from 'redux-form'
-import exchangePage from './CatalogPage'
+import catalogPage from './CatalogPage'
 
 const appReducer = combineReducers({
-  exchangePage,
+  catalogPage,
   form
 })
 

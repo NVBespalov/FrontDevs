@@ -6,9 +6,13 @@ import Checkbox from '../Checkbox'
 import styles from './CategorySelector.styl'
 
 export default class extends PureComponent {
-  propTypes = {
+  static propTypes = {
     values: pt.shape({})
   }
+  static defaultProps = {
+    values: {}
+  }
+
   renderField = ({ input: { name, onChange, value }, label }) => (
     <Checkbox value={value} onChange={onChange} label={label} name={name} />
   )

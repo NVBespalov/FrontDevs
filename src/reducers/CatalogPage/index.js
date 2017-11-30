@@ -1,19 +1,17 @@
 import { createAction, createReducer } from 'redux-act'
+import { prop as rProp, equals as rEquals } from 'ramda'
 
 const initialState = {
 
 }
-export const setRates = createAction('FrontDevs/exchange/SET_RATES')
-export const setCurrencies = createAction('FrontDevs/exchange/SET_CURRENCIES')
-export const setAmount = createAction('FrontDevs/exchange/SET_AMOUNT')
+export const setSortBy = createAction('FrontDevs/category/SET_SORT_BY')
+const sortBySelector = rProp('sortBy')
 
-const handleSetRates = (state, rates) => ({ ...state, rates })
-const handleSetCurrencies = (state, currencies) => ({ ...state, currencies })
-const handleSetAmount = (state, amount) => ({ ...state, amount })
+
+const handleSetSortBy = (state, sortBy) => rEquals(sortBy, sortBySelector(state)) ? state : { ...state, sortBy }
+
 const reducer = createReducer(on => {
-  on(setRates, handleSetRates)
-  on(setCurrencies, handleSetCurrencies)
-  on(setAmount, handleSetAmount)
+  on(setSortBy, handleSetSortBy)
 }, initialState)
 
 export default reducer
