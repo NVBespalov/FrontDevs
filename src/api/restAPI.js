@@ -5,7 +5,7 @@ import axios from 'axios'
 
 const API_URL = 'http://localhost:3004/'
 
-export const categories = () => axios.get(`${API_URL}categories`)
+export const categories = params => axios.get(`${API_URL}categories`, { params })
 
-export const category = () => axios.get(`${API_URL}category`)
+export const products = () => axios.get(`${API_URL}products`)
 

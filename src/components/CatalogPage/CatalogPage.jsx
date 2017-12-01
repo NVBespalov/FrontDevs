@@ -2,32 +2,31 @@ import React, { PureComponent } from 'react'
 import pt from 'prop-types'
 
 import styles from './CatalogPage.styl'
-import CategorySelector from '../../containers/CategorySelector'
+import CategoriesSelector from '../../containers/CategoriesSelector'
 import SortBy from '../../containers/CatalogSortBy'
 import CatalogCategory from '../../containers/CatalogCategory'
 
 export default class extends PureComponent {
   static propTypes = {
-    form: pt.string.isRequired,
-    categoriesByType: pt.shape({})
+    productsByCategory: pt.shape({})
   }
   static defaultProps = {
-    categoriesByType: {}
+    productsByCategory: {}
   }
 
   render() {
-    const { form: formName, categoriesByType } = this.props
+    const { productsByCategory } = this.props
     return (
       <div className={styles.catalogPage}>
-        <CategorySelector formName={formName} />
+        <CategoriesSelector />
         <div className={styles.feed}>
           <SortBy />
-          {Object.keys(categoriesByType).map((categoryType, i) => (
+          {Object.keys(productsByCategory).map((categoryType, i) => (
             <CatalogCategory
               key={categoryType}
               labelRight={i % 2 !== 0}
               categoryType={categoryType}
-              categoryItems={categoriesByType[categoryType]}
+              categoryItems={productsByCategory[categoryType]}
             />
           ))}
         </div>

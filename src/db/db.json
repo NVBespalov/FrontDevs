@@ -1,5 +1,5 @@
 {
-  "categories": [
+  "products": [
     {
       "id": "0",
       "title": "T-SHIRT",
@@ -56,7 +56,8 @@
       "size": ["S", "M", "XL"],
       "thumbnail": "/assets/images/Livello6.png",
       "category": "WOMEN"
-    }, {
+    },
+    {
       "id": "5",
       "title": "T-SHIRT",
       "price": "20,00€",
@@ -65,5 +66,8 @@
       "thumbnail": "/assets/images/Livello7.png",
       "category": "WOMEN"
     }
+  ],
+  "categories": [
+    "NEN", "WOMEN", "CHILDREN"
   ]
 }

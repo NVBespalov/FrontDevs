@@ -13,6 +13,6 @@ export default class extends PureComponent {
   }
   render() {
     const { mode } = this.props
-    return (<span className={cx(styles.chevron, { [styles[mode]]: mode })} />)
+    return (<div className={cx(styles.chevron, { [styles[mode]]: mode })} style={{ ...this.props.style }} />)
   }
 }

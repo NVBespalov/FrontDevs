@@ -7,6 +7,9 @@ import CategoryItem from '../CategoryItem'
 import Chevron from '../Chevron'
 import CategoryTitle from '../CategoryTitle'
 
+const leftChevronStyles = { marginRight: 9, cursor: 'pointer' }
+const rightChevronStyles = { cursor: 'pointer' }
+
 export default class extends PureComponent {
   static defaultProps = {
     categoryType: '',
@@ -31,14 +34,15 @@ export default class extends PureComponent {
     } = this.props
     const itemsToShow = innerWidth < 855 ? 1 : innerWidth > 855 && innerWidth < 1200 ? 2 : 3
     const itemsToDispaly = categoryItems.slice(0, itemsToShow)
+
     return (
       <div>
         <CategoryTitle labelRight={labelRight} title={categoryType} />
         <div className={styles.count}>
           <div className={styles.total}>1/{categoryItems.length}</div>
           <div className={styles.nav}>
-            <Chevron mode='left' />
-            <Chevron mode='right' />
+            <Chevron mode='left' style={leftChevronStyles} />
+            <Chevron mode='right' style={rightChevronStyles} />
           </div>
         </div>
         <div className={styles.items}>

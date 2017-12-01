@@ -22,6 +22,7 @@
     "currency-symbol-map": "^4.0.3",
     "material-design-icons-iconfont": "^3.0.3",
     "memoize": "^0.1.1",
+    "memoizee": "^0.4.11",
     "prop-types": "^15.5.10",
     "ramda": "^0.25.0",
     "react": "^16.0.0",
