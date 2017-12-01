@@ -23,15 +23,16 @@ export default class extends PureComponent {
   }
 
   render() {
+    const { title } = this.props
     return (
       <div className={styles.categoryItem}>
         <div className={styles.params}>
           <div><SizePicker size={this.props.size} /></div>
           <div><ColorPicker colors={this.props.colors} /></div>
         </div>
-        <div className={styles.imageContainer}><img alt='t-shirt' src={this.props.thumbnail} /></div>
+        <div className={styles.imageContainer}><img alt={title} src={this.props.thumbnail} /></div>
         <div className={styles.info}>
-          <span className={styles.title}>{this.props.title}</span>
+          <span className={styles.title}>{title}</span>
           <span>{this.props.price}</span>
         </div>
       </div>

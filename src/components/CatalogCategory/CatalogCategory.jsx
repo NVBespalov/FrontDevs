@@ -2,25 +2,33 @@ import React, { PureComponent } from 'react'
 import pt from 'prop-types'
 
 import styles from './CatalogCategory.styl'
-import CategoryItem from '../../components/CategoryItem'
-import Chevron from '../../components/Chevron'
+import CategoryItem from '../CategoryItem'
+import Chevron from '../Chevron'
+import CategoryTitle from '../CategoryTitle'
 
 export default class extends PureComponent {
   static defaultProps = {
     categoryType: '',
-    categoryItems: []
+    categoryItems: [],
+    labelRight: false,
+    innerWidth: 0
   }
 
   static propTypes = {
     categoryItems: pt.arrayOf(pt.shape({})),
-    categoryType: pt.string
+    categoryType: pt.string,
+    labelRight: pt.bool,
+    innerWidth: pt.number
   }
 
   render() {
-    const { categoryType, categoryItems } = this.props
+    const { categoryType, categoryItems, labelRight, innerWidth } = this.props
+    debugger
+    const itemsToShow = innerWidth < 855 ? 1 : innerWidth > 855 && innerWidth < 1200 ? 2 : 3
+    const itemsToDispaly = categoryItems.slice(0, itemsToShow)
     return (
       <div>
-        <div className={styles.categoryTitle}><span className={styles.title}>{categoryType}</span> <hr className={styles.delimiter} /></div>
+        <CategoryTitle labelRight={labelRight} title={categoryType} />
         <div className={styles.count}>
           <div className={styles.total}>1/{categoryItems.length}</div>
           <div className={styles.nav}>
@@ -29,7 +37,7 @@ export default class extends PureComponent {
           </div>
         </div>
         <div className={styles.items}>
-          {categoryItems.map(categoryItem => (<div key={categoryItem.id} className={styles.wrapper}> <CategoryItem {...categoryItem} /></div>))}
+          {itemsToDispaly.map(categoryItem => (<div key={categoryItem.id} className={styles.wrapper}> <CategoryItem {...categoryItem} /></div>))}
         </div>
       </div>
     )

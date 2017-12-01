@@ -3,6 +3,7 @@ import React from 'react'
 import { HashRouter as Router, Route, withRouter } from 'react-router-dom'
 import { Provider, connect } from 'react-redux'
 import 'roboto-fontface/css/roboto/sass/roboto-fontface-black-italic.scss'
+
 import ExchangeContainer from './containers/CatalogPage'
 import configureStore from './store/configureStore'
 import './styles/general.scss'

@@ -26,6 +26,22 @@
       "category": "MEN"
     },
     {
+      "id": "11",
+      "title": "PANTS FORCLAZ",
+      "price": "30,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello3.png",
+      "category": "MEN"
+    },
+    {
+      "id": "22",
+      "title": "BACKPACK",
+      "price": "60,00€",
+      "size": ["10LITRI"],
+      "thumbnail": "/assets/images/Livello4.png",
+      "category": "MEN"
+    },
+    {
       "id": "3",
       "title": "GIACKET",
       "price": "60,00€",

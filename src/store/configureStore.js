@@ -4,6 +4,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import logger from 'redux-logger'
 import { install } from 'redux-loop'
+import { mediaQueryTracker } from 'redux-mediaquery'
 import rootReducer from '../reducers'
 
 export default function configureStore(state) {
@@ -17,6 +18,13 @@ export default function configureStore(state) {
   const enhancer = composeEnhancers(applyMiddleware(logger), install())
 
   const store = createStore(rootReducer, initialState, enhancer)
+
+  mediaQueryTracker({
+    isPhone: 'screen and (max-width: 767px)',
+    isTablet: 'screen and (max-width: 1024px)',
+    innerWidth: true,
+    innerHeight: true
+  }, store.dispatch)
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {

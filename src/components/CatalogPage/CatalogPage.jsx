@@ -20,8 +20,17 @@ export default class extends PureComponent {
     return (
       <div className={styles.catalogPage}>
         <CategorySelector formName={formName} />
-        <SortBy />
-        {Object.keys(categoriesByType).map(categoryType => (<CatalogCategory key={categoryType} categoryType={categoryType} categoryItems={categoriesByType[categoryType]} />))}
+        <div className={styles.feed}>
+          <SortBy />
+          {Object.keys(categoriesByType).map((categoryType, i) => (
+            <CatalogCategory
+              key={categoryType}
+              labelRight={i % 2 !== 0}
+              categoryType={categoryType}
+              categoryItems={categoriesByType[categoryType]}
+            />
+          ))}
+        </div>
       </div>
     )
   }
