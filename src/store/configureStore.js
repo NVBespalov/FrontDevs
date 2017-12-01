@@ -3,6 +3,7 @@
  */
 import { createStore, applyMiddleware, compose } from 'redux'
 import logger from 'redux-logger'
+import { install } from 'redux-loop'
 import rootReducer from '../reducers'
 
 export default function configureStore(state) {
@@ -13,7 +14,7 @@ export default function configureStore(state) {
       // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
     }) : compose
 
-  const enhancer = composeEnhancers(applyMiddleware(logger))
+  const enhancer = composeEnhancers(applyMiddleware(logger), install())
 
   const store = createStore(rootReducer, initialState, enhancer)
 

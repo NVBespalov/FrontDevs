@@ -7,7 +7,7 @@ export default class extends PureComponent {
   render() {
     return (
       <div className={styles.catalogCategory}>
-        <CatalogCategory />
+        <CatalogCategory {...this.props} />
       </div>
     )
   }

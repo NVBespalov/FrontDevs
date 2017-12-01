@@ -1,18 +1,14 @@
-const webpack = require('webpack');
-const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack')
+const path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const nodeEnv = process.env.NODE_ENV || 'development';
-const isProd = nodeEnv === 'production';
-console.log('============================================')
-console.log('isProd: %s', isProd)
-console.log('env: %s', process.NODE_ENV);
-console.log('============================================')
-const sourcePath = path.join(__dirname, './src');
-const staticsPath = path.join(__dirname, './www');
-
-const extractCSS = new ExtractTextPlugin({ filename: 'style.css', allChunks: true });
+const nodeEnv = process.env.NODE_ENV || 'development'
+const isProd = nodeEnv === 'production'
+const sourcePath = path.join(__dirname, './src')
+const staticsPath = path.join(__dirname, './www')
+const extractCSS = new ExtractTextPlugin({ filename: 'style.css', allChunks: true })
 
 const plugins = [
   new webpack.optimize.CommonsChunkPlugin({
@@ -29,12 +25,13 @@ const plugins = [
     template: `${sourcePath}/index.ejs`,
     production: isProd,
     inject: true
-  })
-];
+  }),
+  new CopyWebpackPlugin([{ from: `${sourcePath}/assets`, to: 'assets' }])
+]
 
 const jsEntry = [
   'index'
-];
+]
 
 if (isProd) {
   plugins.push(
@@ -59,16 +56,16 @@ if (isProd) {
         comments: false
       }
     })
-  );
+  )
 } else {
   plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin()
-  );
+  )
 }
 
 const stylesLoader = [
-  `css-loader?modules&importLoaders=1&localIdentName=[path]_[local]`,
+  'css-loader?modules&importLoaders=1&localIdentName=[path]_[local]',
   'stylus-loader'
 ]
 
@@ -84,7 +81,7 @@ module.exports = {
       'react-dom',
       'react-redux',
       'redux',
-      'redux-logger',
+      'redux-logger'
     ]
   },
   output: {
@@ -94,7 +91,6 @@ module.exports = {
   },
   module: {
     rules: [
-
       {
         test: /\.scss$/,
         loaders: isProd ? extractCSS.extract({
@@ -161,4 +157,4 @@ module.exports = {
     compress: isProd,
     stats: { colors: true }
   }
-};
+}

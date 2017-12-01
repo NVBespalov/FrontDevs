@@ -1,7 +1,7 @@
 /**
  * Created by nbespalov on 11.04.2017.
  */
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux-loop'
 import { reducer as form } from 'redux-form'
 import catalogPage from './CatalogPage'
 

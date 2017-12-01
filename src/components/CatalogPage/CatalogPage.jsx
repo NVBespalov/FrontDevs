@@ -8,17 +8,20 @@ import CatalogCategory from '../../containers/CatalogCategory'
 
 export default class extends PureComponent {
   static propTypes = {
-    form: pt.string.isRequired
+    form: pt.string.isRequired,
+    categoriesByType: pt.shape({})
+  }
+  static defaultProps = {
+    categoriesByType: {}
   }
 
   render() {
-    const { form: formName } = this.props
+    const { form: formName, categoriesByType } = this.props
     return (
       <div className={styles.catalogPage}>
         <CategorySelector formName={formName} />
         <SortBy />
-        <CatalogCategory />
-        <CatalogCategory />
+        {Object.keys(categoriesByType).map(categoryType => (<CatalogCategory key={categoryType} categoryType={categoryType} categoryItems={categoriesByType[categoryType]} />))}
       </div>
     )
   }

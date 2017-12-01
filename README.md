@@ -21,6 +21,7 @@ $ npm install
 
 ```
 $ npm start
+$ npm run FakeDb
 ```
 
 ## Build

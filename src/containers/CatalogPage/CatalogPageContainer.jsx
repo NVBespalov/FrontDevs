@@ -4,7 +4,8 @@ import { reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 
 import CatalogPage from './../../components/CatalogPage'
-
+import { fetchCategories } from '../../reducers/CatalogPage'
+import categoriesByTypeSelector from '../../reducers/CatalogPage/categoriesByTypeSelector'
 @reduxForm({
   form: 'categories',
   initialValues: {
@@ -13,11 +14,15 @@ import CatalogPage from './../../components/CatalogPage'
     women: false
   }
 })
-@connect(() => ({}), {})
+@connect(state => ({
+  categoriesByType: categoriesByTypeSelector(state)
+}), { fetch: fetchCategories })
 export default class ExchangeContainer extends PureComponent {
   static defaultProps = ExchangeRatesPageComponentSchema.defaultProps
   static propTypes = ExchangeRatesPageComponentSchema.propTypes
-
+  componentWillMount() {
+    this.props.fetch()
+  }
   render() {
     return (
       <CatalogPage {...this.props} />
