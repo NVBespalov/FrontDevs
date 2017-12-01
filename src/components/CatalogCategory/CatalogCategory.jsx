@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { PureComponent } from 'react'
 import pt from 'prop-types'
 
@@ -22,8 +23,12 @@ export default class extends PureComponent {
   }
 
   render() {
-    const { categoryType, categoryItems, labelRight, innerWidth } = this.props
-    debugger
+    const {
+      categoryType,
+      categoryItems,
+      labelRight,
+      innerWidth
+    } = this.props
     const itemsToShow = innerWidth < 855 ? 1 : innerWidth > 855 && innerWidth < 1200 ? 2 : 3
     const itemsToDispaly = categoryItems.slice(0, itemsToShow)
     return (
