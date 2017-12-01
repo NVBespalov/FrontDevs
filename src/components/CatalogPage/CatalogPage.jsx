@@ -8,20 +8,22 @@ import CatalogCategory from '../../containers/CatalogCategory'
 
 export default class extends PureComponent {
   static propTypes = {
-    productsByCategory: pt.shape({})
+    productsByCategory: pt.shape({}),
+    selectedCategories: pt.arrayOf(pt.string)
   }
   static defaultProps = {
-    productsByCategory: {}
+    productsByCategory: {},
+    selectedCategories: {}
   }
 
   render() {
-    const { productsByCategory } = this.props
+    const { productsByCategory, selectedCategories } = this.props
     return (
       <div className={styles.catalogPage}>
         <CategoriesSelector />
         <div className={styles.feed}>
           <SortBy />
-          {Object.keys(productsByCategory).map((categoryType, i) => (
+          {Object.keys(productsByCategory).filter(key => selectedCategories.indexOf(key) !== -1).map((categoryType, i) => (
             <CatalogCategory
               key={categoryType}
               labelRight={i % 2 !== 0}

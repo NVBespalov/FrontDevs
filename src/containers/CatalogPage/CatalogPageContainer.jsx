@@ -5,9 +5,11 @@ import { connect } from 'react-redux'
 import CatalogPage from './../../components/CatalogPage'
 import { fetchCategories, fetchProducts } from '../../reducers/CatalogPage'
 import productsByCategorySelector from '../../reducers/CatalogPage/productsByCategorySelector'
+import selectedCategoriesSelector from '../../reducers/CatalogPage/selectedCategoriesSelector'
 
 @connect(state => ({
-  productsByCategory: productsByCategorySelector(state)
+  productsByCategory: productsByCategorySelector(state),
+  selectedCategories: selectedCategoriesSelector(state)
 }), { fetchCategories, fetchProducts })
 export default class ExchangeContainer extends PureComponent {
   static defaultProps = ExchangeRatesPageComponentSchema.defaultProps

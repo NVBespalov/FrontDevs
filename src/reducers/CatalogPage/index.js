@@ -10,7 +10,10 @@ const sortBySelector = rProp('sortBy')
 const initialState = {
   categories: [],
   products: [],
-  selectedCategories: {}
+  selectedCategories: {
+    MEN: { selected: true },
+    WOMEN: { selected: true }
+  }
 }
 
 const fetchCategoriesWithParams = memoizee(params => () => requestCategories(params))
@@ -44,9 +47,9 @@ const handleFetchProducts = state => loop(
 )
 const handleFetchCategoriesSuccess = (state, { data }) => ({ ...state, categories: data })
 const handleFetchProductsSuccess = (state, { data }) => ({ ...state, products: data })
-const handleSetSelected = (state, { categoryName, selected }) => ({
+const handleSetSelected = (state, selected) => ({
   ...state,
-  selectedCategories: { ...state.selectedCategories, ...{ [categoryName]: { selected } } }
+  selectedCategories: { ...state.selectedCategories, ...selected }
 })
 
 const reducer = createReducer(on => {
