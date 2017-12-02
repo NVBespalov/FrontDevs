@@ -4,6 +4,8 @@ import pt from 'prop-types'
 import Chevron from '../../components/Chevron'
 import styles from './SortBy.styl'
 
+const chevronStyle = { cursor: 'pointer' }
+
 export default class extends PureComponent {
   static propTypes = {
     types: pt.shape({}),
@@ -23,13 +25,13 @@ export default class extends PureComponent {
 
   render() {
     const { types, type } = this.props
-    return (<div
+    return (<button
       className={styles.sortBy}
       onClick={this.handleSort}
     >
       <div className={styles.title} >Sort BY</div>
       <div className={styles.titleDescription}>PRICE</div>
-      <Chevron mode={types[type]} />
-    </div>)
+      <Chevron mode={types[type]} style={chevronStyle} />
+    </button>)
   }
 }
