@@ -26,7 +26,10 @@ export default class extends PureComponent {
     return (
       <div className={styles.categorySelector}>
         {categories.map(category => (
-          <div className={styles.categoriesForm}>
+          <div
+            className={styles.categoriesForm}
+            key={category}
+          >
             <Checkbox
               key={category}
               value={path([category, 'selected'], selectedCategories)}

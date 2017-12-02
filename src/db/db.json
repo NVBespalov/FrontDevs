@@ -100,7 +100,7 @@
       "category": "MEN"
     },
     {
-      "id": "3",
+      "id": "3g",
       "title": "GIACKET",
       "price": "60,00€",
       "size": ["S", "M", "XL"],
@@ -116,7 +116,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "5",
+      "id": "5g",
       "title": "T-SHIRT",
       "price": "20,00€",
       "colors": ["#D0A6AC"],
@@ -125,7 +125,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "3",
+      "id": "3g",
       "title": "GIACKET",
       "price": "60,00€",
       "size": ["S", "M", "XL"],
@@ -133,7 +133,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "4",
+      "id": "4g",
       "title": "TRAINING SHOES",
       "price": "80,00€",
       "size": ["S", "M", "XL"],
@@ -141,7 +141,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "5",
+      "id": "5gg",
       "title": "T-SHIRT",
       "price": "20,00€",
       "colors": ["#D0A6AC"],
@@ -150,7 +150,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "3",
+      "id": "3gggg",
       "title": "GIACKET",
       "price": "60,00€",
       "size": ["S", "M", "XL"],
@@ -158,7 +158,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "4",
+      "id": "4fffff",
       "title": "TRAINING SHOES",
       "price": "80,00€",
       "size": ["S", "M", "XL"],
@@ -166,7 +166,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "5",
+      "id": "5ttttt",
       "title": "T-SHIRT",
       "price": "20,00€",
       "colors": ["#D0A6AC"],
@@ -175,7 +175,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "3",
+      "id": "3zzzzz",
       "title": "GIACKET",
       "price": "60,00€",
       "size": ["S", "M", "XL"],
@@ -183,7 +183,7 @@
       "category": "WOMEN"
     },
     {
-      "id": "4",
+      "id": "4yyyyyy",
       "title": "TRAINING SHOES",
       "price": "80,00€",
       "size": ["S", "M", "XL"],
@@ -191,13 +191,113 @@
       "category": "WOMEN"
     },
     {
-      "id": "5",
+      "id": "5uuuu",
       "title": "T-SHIRT",
       "price": "20,00€",
       "colors": ["#D0A6AC"],
       "size": ["S", "M", "XL"],
       "thumbnail": "/assets/images/Livello7.png",
       "category": "WOMEN"
+    },
+    {
+      "id": "3gr",
+      "title": "GIACKET",
+      "price": "60,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello5.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "4vv",
+      "title": "TRAINING SHOES",
+      "price": "80,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello6.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "5gd",
+      "title": "T-SHIRT",
+      "price": "20,00€",
+      "colors": ["#D0A6AC"],
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello7.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "3gasdc",
+      "title": "GIACKET",
+      "price": "60,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello5.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "4gasdcg",
+      "title": "TRAINING SHOES",
+      "price": "80,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello6.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "5ggdhdrn",
+      "title": "T-SHIRT",
+      "price": "20,00€",
+      "colors": ["#D0A6AC"],
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello7.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "3ggggdfhjmy",
+      "title": "GIACKET",
+      "price": "60,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello5.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "4fffffjhkg",
+      "title": "TRAINING SHOES",
+      "price": "80,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello6.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "5tttttolkjhgf",
+      "title": "T-SHIRT",
+      "price": "20,00€",
+      "colors": ["#D0A6AC"],
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello7.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "3zzzzzuytre",
+      "title": "GIACKET",
+      "price": "60,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello5.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "4yyyyyyasdfgh",
+      "title": "TRAINING SHOES",
+      "price": "80,00€",
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello6.png",
+      "category": "CHILDREN"
+    },
+    {
+      "id": "5uuuumnbvc",
+      "title": "T-SHIRT",
+      "price": "20,00€",
+      "colors": ["#D0A6AC"],
+      "size": ["S", "M", "XL"],
+      "thumbnail": "/assets/images/Livello7.png",
+      "category": "CHILDREN"
     }
   ],
   "categories": [
