@@ -1,10 +1,14 @@
 import React, { PureComponent } from 'react'
-import { path } from 'ramda'
+import { path, filter } from 'ramda'
 import pt from 'prop-types'
 import memoizee from 'memoizee'
 
 import Checkbox from '../Checkbox'
 import styles from './CategoriesSelector.styl'
+
+const setCategorySelection = (categoryName, category, selected) => ({ [categoryName]: { ...category, selected } })
+
+const getNotSelected = (selectedCategories, categories) => filter(categoryName => !path([categoryName, 'selected'], selectedCategories), categories)
 
 export default class extends PureComponent {
   static propTypes = {
@@ -19,10 +23,18 @@ export default class extends PureComponent {
     }
   }
 
-  handleCategorySelectionChange = memoizee(category => ({ target: { checked } }) => this.props.setSelected({ [category]: { selected: checked } }))
+  handleCategorySelectionChange = memoizee(categoryName => ({ target: { checked } }) =>
+    this.props.setSelected(setCategorySelection(categoryName, this.props.selectedCategories[categoryName], checked)))
+
+  handleSeeAll = () => {
+    const notSelected = getNotSelected(this.props.selectedCategories, this.props.categories)
+    return notSelected.forEach(categoryName =>
+      this.props.setSelected(setCategorySelection(categoryName, this.props.selectedCategories[categoryName], true)))
+  }
 
   render() {
     const { categories, selectedCategories } = this.props
+    const notSelected = getNotSelected(selectedCategories, categories)
     return (
       <div className={styles.categorySelector}>
         {categories.map(category => (
@@ -41,7 +53,7 @@ export default class extends PureComponent {
         ))}
 
         <div className={styles.seeAllContainer}>
-          <button className={styles.showAllButton}>See All PRODUCTS</button>
+          <button disabled={notSelected.length === 0} onClick={this.handleSeeAll} className={styles.showAllButton}>See All PRODUCTS</button>
         </div>
       </div>
     )

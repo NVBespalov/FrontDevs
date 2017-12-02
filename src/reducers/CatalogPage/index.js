@@ -21,7 +21,7 @@ const fetchCategoriesWithParams = memoizee(params => () => requestCategories(par
 const fetchProductsWithParams = memoizee(params => () => requestProducts(params))
 
 export const setSortBy = createAction('FrontDevs/category/SET_SORT_BY')
-export const setSelectedCategory = createAction('FrontDevs/category/SET_SELECTED_CATEGoRIES')
+export const setSelectedCategory = createAction('FrontDevs/category/SET_SELECTED_CATEGORIES')
 export const fetchCategories = createAction('FrontDevs/category/FETCH_CATEGORIES')
 export const fetchProducts = createAction('FrontDevs/category/FETCH_PRODUCTS')
 export const fetchCategoriesSuccessful = createAction('FrontDevs/category/FETCH_CATEGORIES_SUCCESS')

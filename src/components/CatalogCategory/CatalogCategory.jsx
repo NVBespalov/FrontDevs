@@ -48,7 +48,6 @@ export default class extends PureComponent {
       lastPage,
     } = this.props
 
-    debugger
     return (
       <div>
         <CategoryTitle labelRight={labelRight} title={categoryType} />
