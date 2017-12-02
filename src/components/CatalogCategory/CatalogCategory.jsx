@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React, { PureComponent } from 'react'
 import pt from 'prop-types'
 import memoizee from 'memoizee'
@@ -18,6 +17,9 @@ export default class extends PureComponent {
     labelRight: false,
     innerWidth: 0,
     selectedCategory: {},
+    itemsToDisplay: [],
+    page: 1,
+    lastPage: 1,
     setSelectedCategory: () => {}
   }
 
@@ -27,7 +29,10 @@ export default class extends PureComponent {
     labelRight: pt.bool,
     innerWidth: pt.number,
     selectedCategory: pt.shape({}),
-    setSelectedCategory: pt.func
+    setSelectedCategory: pt.func,
+    itemsToDisplay: pt.arrayOf(pt.shape({})),
+    page: pt.number,
+    lastPage: pt.number
   }
 
   handlePageChange = memoizee(page => () => {
@@ -39,16 +44,11 @@ export default class extends PureComponent {
       categoryType,
       categoryItems,
       labelRight,
-      innerWidth,
-      selectedCategory: { page = 1 }
+      page,
+      lastPage,
     } = this.props
 
-    const itemsToShow = innerWidth < 855 ? 1 : innerWidth > 855 && innerWidth < 1200 ? 2 : 3
-    const pageFromZero = page - 1
-    const offset = (pageFromZero * itemsToShow)
-    const itemsToDisplay = categoryItems.slice(offset, page * itemsToShow)
-
-    const lastPage = categoryItems.length / itemsToShow
+    debugger
     return (
       <div>
         <CategoryTitle labelRight={labelRight} title={categoryType} />
@@ -60,7 +60,7 @@ export default class extends PureComponent {
           </div>
         </div>
         <div className={styles.items}>
-          {itemsToDisplay.map(categoryItem => (<div key={categoryItem.id} className={styles.wrapper}> <CategoryItem {...categoryItem} /></div>))}
+          {categoryItems.map(categoryItem => (<div key={categoryItem.id} className={styles.wrapper}> <CategoryItem {...categoryItem} /></div>))}
         </div>
       </div>
     )
