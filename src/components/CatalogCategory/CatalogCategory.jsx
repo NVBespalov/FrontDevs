@@ -1,52 +1,66 @@
 /* eslint-disable no-nested-ternary */
 import React, { PureComponent } from 'react'
 import pt from 'prop-types'
+import memoizee from 'memoizee'
 
 import styles from './CatalogCategory.styl'
 import CategoryItem from '../CategoryItem'
 import Chevron from '../Chevron'
 import CategoryTitle from '../CategoryTitle'
 
-const leftChevronStyles = { marginRight: 9, cursor: 'pointer' }
-const rightChevronStyles = { cursor: 'pointer' }
+const leftChevronStyles = { marginRight: 9, cursor: 'pointer', color: '#A99D7D' }
+const rightChevronStyles = { cursor: 'pointer', color: '#A99D7D' }
 
 export default class extends PureComponent {
   static defaultProps = {
     categoryType: '',
     categoryItems: [],
     labelRight: false,
-    innerWidth: 0
+    innerWidth: 0,
+    selectedCategory: {},
+    setSelectedCategory: () => {}
   }
 
   static propTypes = {
     categoryItems: pt.arrayOf(pt.shape({})),
     categoryType: pt.string,
     labelRight: pt.bool,
-    innerWidth: pt.number
+    innerWidth: pt.number,
+    selectedCategory: pt.shape({}),
+    setSelectedCategory: pt.func
   }
+
+  handlePageChange = memoizee(page => () => {
+    this.props.setSelectedCategory({ [this.props.categoryType]: { ...this.props.selectedCategory, page } })
+  })
 
   render() {
     const {
       categoryType,
       categoryItems,
       labelRight,
-      innerWidth
+      innerWidth,
+      selectedCategory: { page = 1 }
     } = this.props
-    const itemsToShow = innerWidth < 855 ? 1 : innerWidth > 855 && innerWidth < 1200 ? 2 : 3
-    const itemsToDispaly = categoryItems.slice(0, itemsToShow)
 
+    const itemsToShow = innerWidth < 855 ? 1 : innerWidth > 855 && innerWidth < 1200 ? 2 : 3
+    const pageFromZero = page - 1
+    const offset = (pageFromZero * itemsToShow)
+    const itemsToDisplay = categoryItems.slice(offset, page * itemsToShow)
+
+    const lastPage = categoryItems.length / itemsToShow
     return (
       <div>
         <CategoryTitle labelRight={labelRight} title={categoryType} />
         <div className={styles.count}>
-          <div className={styles.total}>1/{categoryItems.length}</div>
+          <div className={styles.total}>{page || 1}/{lastPage}</div>
           <div className={styles.nav}>
-            <Chevron mode='left' style={leftChevronStyles} />
-            <Chevron mode='right' style={rightChevronStyles} />
+            <Chevron mode='left' style={leftChevronStyles} onClick={this.handlePageChange(page - 1 || lastPage)} />
+            <Chevron mode='right' style={rightChevronStyles} onClick={this.handlePageChange(page + 1 > lastPage ? 1 : page + 1)} />
           </div>
         </div>
         <div className={styles.items}>
-          {itemsToDispaly.map(categoryItem => (<div key={categoryItem.id} className={styles.wrapper}> <CategoryItem {...categoryItem} /></div>))}
+          {itemsToDisplay.map(categoryItem => (<div key={categoryItem.id} className={styles.wrapper}> <CategoryItem {...categoryItem} /></div>))}
         </div>
       </div>
     )

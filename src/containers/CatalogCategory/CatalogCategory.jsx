@@ -3,10 +3,13 @@ import { connect } from 'react-redux'
 
 import styles from './CatalogCategory.styl'
 import CatalogCategory from '../../components/CatalogCategory'
+import { setSelectedCategory } from '../../reducers/CatalogPage'
 
-@connect(({ responsive }) => ({
-  innerWidth: responsive.innerWidth
-}))
+@connect(({ responsive, catalogPage: { selectedCategories } }, { categoryType }) => ({
+  innerWidth: responsive.innerWidth,
+  selectedCategory: selectedCategories[categoryType]
+
+}), { setSelectedCategory })
 export default class extends PureComponent {
   render() {
     return (

@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 
 import CategoriesSelector from '../../components/CategoriesSelector.jsx/CategoriesSelector'
-import { setSelected } from '../../reducers/CatalogPage'
+import { setSelectedCategory } from '../../reducers/CatalogPage'
 
-@connect(({ catalogPage: { categories, selectedCategories } }) => ({ categories, selectedCategories }), { setSelected })
+@connect(({ catalogPage: { categories, selectedCategories } }) => ({ categories, selectedCategories }), { setSelected: setSelectedCategory })
 export default class extends PureComponent {
   render() {
     return (

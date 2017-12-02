@@ -21,7 +21,7 @@ const fetchCategoriesWithParams = memoizee(params => () => requestCategories(par
 const fetchProductsWithParams = memoizee(params => () => requestProducts(params))
 
 export const setSortBy = createAction('FrontDevs/category/SET_SORT_BY')
-export const setSelected = createAction('FrontDevs/category/SET_SELECTED')
+export const setSelectedCategory = createAction('FrontDevs/category/SET_SELECTED_CATEGoRIES')
 export const fetchCategories = createAction('FrontDevs/category/FETCH_CATEGORIES')
 export const fetchProducts = createAction('FrontDevs/category/FETCH_PRODUCTS')
 export const fetchCategoriesSuccessful = createAction('FrontDevs/category/FETCH_CATEGORIES_SUCCESS')
@@ -47,9 +47,9 @@ const handleFetchProducts = state => loop(
 )
 const handleFetchCategoriesSuccess = (state, { data }) => ({ ...state, categories: data })
 const handleFetchProductsSuccess = (state, { data }) => ({ ...state, products: data })
-const handleSetSelected = (state, selected) => ({
+const handleSetSelectedCategory = (state, selectedCategory) => ({
   ...state,
-  selectedCategories: { ...state.selectedCategories, ...selected }
+  selectedCategories: { ...state.selectedCategories, ...selectedCategory }
 })
 
 const reducer = createReducer(on => {
@@ -58,7 +58,7 @@ const reducer = createReducer(on => {
   on(fetchProducts, handleFetchProducts)
   on(fetchCategoriesSuccessful, handleFetchCategoriesSuccess)
   on(fetchProductsSuccessful, handleFetchProductsSuccess)
-  on(setSelected, handleSetSelected)
+  on(setSelectedCategory, handleSetSelectedCategory)
 }, initialState)
 
 export default reducer
