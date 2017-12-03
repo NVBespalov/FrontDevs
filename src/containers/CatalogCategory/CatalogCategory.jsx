@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
 import memoize from 'memoizee'
 
 import styles from './CatalogCategory.styl'
@@ -33,7 +34,7 @@ const byPrice = memoize(reversed => (a, b) => {
 
   })
 }, { setSelectedCategory })
-export default class extends PureComponent {
+export default withRouter(class extends PureComponent {
   render() {
     return (
       <div className={styles.catalogCategory}>
@@ -41,4 +42,4 @@ export default class extends PureComponent {
       </div>
     )
   }
-}
+})

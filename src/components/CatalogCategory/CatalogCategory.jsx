@@ -39,6 +39,8 @@ export default class extends PureComponent {
     this.props.setSelectedCategory({ [this.props.categoryType]: { ...this.props.selectedCategory, page } })
   })
 
+  handleProductClick = memoizee(({ category, id }) => () => this.props.history.push(`/${category}/${id}`))
+
   render() {
     const {
       categoryType,
@@ -58,8 +60,12 @@ export default class extends PureComponent {
             <Chevron mode='right' style={rightChevronStyles} onClick={this.handlePageChange(page + 1 > lastPage ? 1 : page + 1)} />
           </div>
         </div>
-        <div className={styles.items}>
-          {categoryItems.map(categoryItem => (<div key={categoryItem.id} className={styles.wrapper}> <CategoryItem {...categoryItem} /></div>))}
+        <div className={styles.items} >
+          {categoryItems.map(categoryItem => (<div
+            key={categoryItem.id}
+            className={styles.wrapper}
+            onClick={this.handleProductClick(categoryItem)}
+          > <CategoryItem {...categoryItem} /></div>))}
         </div>
       </div>
     )

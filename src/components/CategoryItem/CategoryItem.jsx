@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import pt from 'prop-types'
 
-import ColorPicker from '../../components/ColorPicker'
-import SizePicker from '../../components/SizePicker'
+import ColorPicker from '../ColorPicker'
+import SizePicker from '../SizePicker'
 import styles from './CategoryItem.styl'
 
 export default class extends PureComponent {

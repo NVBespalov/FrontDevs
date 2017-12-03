@@ -7,5 +7,5 @@ const API_URL = 'http://localhost:3004/'
 
 export const categories = params => axios.get(`${API_URL}categories`, { params })
 
-export const products = () => axios.get(`${API_URL}products`)
+export const products = params => axios.get(`${API_URL}products`, { params })
 

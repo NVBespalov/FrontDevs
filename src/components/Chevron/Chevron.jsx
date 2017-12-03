@@ -20,7 +20,7 @@ export default class extends PureComponent {
   render() {
     const { mode, onClick, style } = this.props
     return (
-      <button
+      <div
         onClick={onClick}
         className={cx(styles.chevron, { [styles[mode]]: mode })}
         style={{ ...style }}

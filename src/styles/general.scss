@@ -26,6 +26,12 @@ body {
   -ms-font-smoothing: antialiased;
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  #root {
+    height: 100%;
+    .App {
+      height: 100%;
+    }
+  }
 }
 .viewport {
   margin: 0;

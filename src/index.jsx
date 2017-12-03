@@ -4,7 +4,8 @@ import { HashRouter as Router, Route, withRouter } from 'react-router-dom'
 import { Provider, connect } from 'react-redux'
 import 'roboto-fontface/css/roboto/sass/roboto-fontface-black-italic.scss'
 
-import ExchangeContainer from './containers/CatalogPage'
+import CatalogPage from './containers/CatalogPage'
+import ProductPage from './containers/ProductPage/index'
 import configureStore from './store/configureStore'
 import './styles/general.scss'
 
@@ -22,7 +23,8 @@ const App = () => (
   <Provider store={store}>
     <Router>
       <div className='App'>
-        <Public exact path='/' component={ExchangeContainer} />
+        <Public exact path='/' component={CatalogPage} />
+        <Public exact path='/:slug/:productId' component={ProductPage} />
       </div>
     </Router>
   </Provider>
