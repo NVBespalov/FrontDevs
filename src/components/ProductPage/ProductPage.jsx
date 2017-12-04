@@ -6,20 +6,35 @@ import NavBar from '../../containers/NavBar'
 import Product from '../Product'
 import styles from './ProductPage.styl'
 
+const categoryTitleStyle = {
+  marginTop: 72,
+  fontSize: 20,
+  fontWeight: 'bold'
+}
+
+const productStyle = { margin: '79px 8px' }
+
 export default class extends PureComponent {
   static defaultProps = {
     product: {}
   }
   static propTypes = {
-    product: pt.shape({})
+    product: pt.shape({
+      title: pt.string
+    })
   }
 
   render() {
     return (
       <div className={styles.productPage}>
+        <div className={styles.topLogo}>
+          <img src='/assets/images/GOOGLE.png' alt='google' />
+        </div>
         <NavBar navText='BACK TO CATALOG' />
-        <CategoryTitle title={this.props.product.title} style={{ margin: '19px 59px 0px 59px' }} />
-        <Product {...this.props.product} />
+        <div className={styles.mainSectionWrapper}>
+          <CategoryTitle title={this.props.product.title} style={categoryTitleStyle} />
+          <Product {...this.props.product} style={productStyle} />
+        </div>
       </div>
     )
   }

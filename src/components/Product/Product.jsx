@@ -8,16 +8,20 @@ import SizePicker from '../SizePicker'
 export default class extends PureComponent {
   static defaultProps = {
     colors: [],
-    size: []
+    size: [],
+    style: {},
+    price: '0'
   }
   static propTypes = {
     size: pt.arrayOf({}),
-    colors: pt.arrayOf({})
+    colors: pt.arrayOf({}),
+    style: pt.shape({}),
+    price: pt.string
   }
 
   render() {
     return (
-      <div className={styles.product}>
+      <div className={styles.product} style={this.props.style}>
         <div className={styles.imageContainer}>
           <img
             className={styles.image}
@@ -26,22 +30,22 @@ export default class extends PureComponent {
           />
         </div>
         <div className={styles.infoContainer}>
-          <div className={styles.left}>
-            <div>{this.props.price}</div>
-            {
-              <div
-                className={styles.colors}
-              >
-                {this.props.colors.map(backgroundColor => <div className={styles.color} key={backgroundColor} style={{ backgroundColor }} />)}
-              </div>
-            }
-            {this.props.size.join(',')}
+          <div className={styles.priceInfo}>
+            <span className={styles.price}>{this.props.price}</span>
+            <span className={styles.priceLable}>PRICE</span>
           </div>
-          <div className={styles.right}>
-            <div>Price</div>
-            {this.props.colors.length > 0 && <div>Color</div>}
-            <div>Size</div>
-          </div>
+          <ColorPicker
+            style={{ marginTop: 18 }}
+            colors={this.props.colors}
+            label='COLORS'
+            labelStyle={{ marginLeft: 20 }}
+          />
+          <SizePicker
+            noDropDown
+            labelRight
+            size={this.props.size}
+            label='SIZE'
+          />
         </div>
       </div>
     )
