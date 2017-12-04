@@ -19,11 +19,15 @@ export default class extends PureComponent {
   }
 
   render() {
-    const { labelRight, noDropDown, label } = this.props
+    const {
+      labelRight, noDropDown, label, size
+    } = this.props
     return (
       <div className={styles.sizePicker}>
         {!labelRight && <span className={styles.label}>{label}</span>}
-        {!noDropDown && this.props.size.length > 1 ? <Chevron mode='down' /> : this.props.size[0]}
+        {!noDropDown && size.length > 1 && <Chevron mode='down' />}
+        {!noDropDown && size.length === 1 && size[0]}
+        {noDropDown && size.length > 0 && size.join(',')}
         {labelRight && <span className={styles.label}>{label}</span>}
       </div>
     )

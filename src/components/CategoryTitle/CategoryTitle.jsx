@@ -12,7 +12,7 @@ export default class extends PureComponent {
   static propTypes = {
     title: pt.string,
     labelRight: pt.bool,
-    style: {}
+    style: pt.shape({})
   }
 
   render() {

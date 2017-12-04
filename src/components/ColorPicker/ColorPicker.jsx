@@ -8,7 +8,7 @@ export default class extends PureComponent {
     colors: pt.arrayOf(pt.string),
     label: pt.string,
     labelStyle: pt.shape(),
-    style: pt.shape()
+    style: pt.shape({})
   }
   static defaultProps = {
     colors: [],

@@ -9,43 +9,50 @@ export default class extends PureComponent {
   static defaultProps = {
     colors: [],
     size: [],
+    title: '',
+    thumbnail: '',
     style: {},
     price: '0'
   }
   static propTypes = {
-    size: pt.arrayOf({}),
-    colors: pt.arrayOf({}),
+    size: pt.arrayOf(pt.string),
+    colors: pt.arrayOf(pt.string),
     style: pt.shape({}),
-    price: pt.string
+    price: pt.string,
+    title: pt.string,
+    thumbnail: pt.string
   }
 
   render() {
+    const {
+      colors, size, price, title, thumbnail, style
+    } = this.props
     return (
-      <div className={styles.product} style={this.props.style}>
+      <div className={styles.product} style={style}>
         <div className={styles.imageContainer}>
           <img
             className={styles.image}
-            alt={this.props.title}
-            src={this.props.thumbnail}
+            alt={title}
+            src={thumbnail}
           />
         </div>
         <div className={styles.infoContainer}>
           <div className={styles.priceInfo}>
-            <span className={styles.price}>{this.props.price}</span>
+            <span className={styles.price}>{price}</span>
             <span className={styles.priceLable}>PRICE</span>
           </div>
-          <ColorPicker
+          {colors.length > 0 && <ColorPicker
             style={{ marginTop: 18 }}
-            colors={this.props.colors}
+            colors={colors}
             label='COLORS'
             labelStyle={{ marginLeft: 20 }}
-          />
-          <SizePicker
+          />}
+          {size.length > 0 && <SizePicker
             noDropDown
             labelRight
-            size={this.props.size}
+            size={size}
             label='SIZE'
-          />
+          />}
         </div>
       </div>
     )

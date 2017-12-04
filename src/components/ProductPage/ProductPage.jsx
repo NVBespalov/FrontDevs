@@ -5,6 +5,7 @@ import CategoryTitle from '../CategoryTitle'
 import NavBar from '../../containers/NavBar'
 import Product from '../Product'
 import styles from './ProductPage.styl'
+import TopLogo from '../TopLogo'
 
 const categoryTitleStyle = {
   marginTop: 72,
@@ -27,9 +28,7 @@ export default class extends PureComponent {
   render() {
     return (
       <div className={styles.productPage}>
-        <div className={styles.topLogo}>
-          <img src='/assets/images/GOOGLE.png' alt='google' />
-        </div>
+        <TopLogo />
         <NavBar navText='BACK TO CATALOG' />
         <div className={styles.mainSectionWrapper}>
           <CategoryTitle title={this.props.product.title} style={categoryTitleStyle} />
