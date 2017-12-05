@@ -17,7 +17,6 @@ export default class extends PureComponent {
     labelRight: false,
     innerWidth: 0,
     selectedCategory: {},
-    itemsToDisplay: [],
     page: 1,
     lastPage: 1,
     setSelectedCategory: () => {}
@@ -30,7 +29,6 @@ export default class extends PureComponent {
     innerWidth: pt.number,
     selectedCategory: pt.shape({}),
     setSelectedCategory: pt.func,
-    itemsToDisplay: pt.arrayOf(pt.shape({})),
     page: pt.number,
     lastPage: pt.number
   }
