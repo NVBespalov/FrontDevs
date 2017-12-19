@@ -5,7 +5,7 @@ The Front Devs app
 - Catalog
 - Product
 
-##System Requirements
+## System Requirements
 Before installing the dependencies, make sure your system has the correct Node and Npm versions, otherwise you will get errors.
 
 - Node 6.x.x
